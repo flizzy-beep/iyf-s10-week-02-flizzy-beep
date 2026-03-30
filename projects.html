@@ -8,105 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* Task 4.2 - CSS Grid Gallery */
-    .projects-hero {
-      background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .projects-hero h1 { color: white; }
-
-    /* Exercise 1: Photo Gallery - 3 column grid */
-    .gallery-section {
-      padding: 4rem 2rem;
-      background: var(--color-background);
-    }
-    .gallery-section h2 { text-align: center; margin-bottom: 2rem; }
-
-    .photo-gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .photo-gallery img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    /* Exercise 2: Magazine Layout */
-    .magazine-section {
-      padding: 4rem 2rem;
-      background: var(--color-white);
-    }
-    .magazine-section h2 { text-align: center; margin-bottom: 2rem; }
-
-    .magazine-layout {
-      display: grid;
-      grid-template-areas:
-        "header header"
-        "sidebar main"
-        "sidebar main"
-        "footer footer";
-      grid-template-columns: 200px 1fr;
-      gap: 1rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .mag-header  { grid-area: header;  background: var(--color-primary);      color: white; padding: 1.5rem; border-radius: 8px; text-align: center; font-family: 'Poppins', sans-serif; font-weight: 600; }
-    .mag-sidebar { grid-area: sidebar; background: #eff6ff; padding: 1.5rem; border-radius: 8px; font-size: 0.875rem; }
-    .mag-main    { grid-area: main;    background: var(--color-background);    padding: 1.5rem; border-radius: 8px; font-size: 0.875rem; }
-    .mag-footer  { grid-area: footer;  background: var(--color-text);          color: white; padding: 1rem; border-radius: 8px; text-align: center; font-size: 0.875rem; }
-
-    /* Exercise 3: Project Cards Grid - responsive (Task 4.2 + 4.3) */
-    .project-grid-section {
-      padding: 4rem 2rem;
-      background: var(--color-background);
-    }
-    .project-grid-section h2 { text-align: center; margin-bottom: 2rem; }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1fr; /* mobile: 1 column */
-      gap: 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 768px) {
-      .project-grid {
-        grid-template-columns: repeat(2, 1fr); /* tablet: 2 columns */
-      }
-      .photo-gallery {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .project-grid {
-        grid-template-columns: repeat(3, 1fr); /* desktop: 3 columns */
-      }
-    }
-
-    @media (max-width: 600px) {
-      .photo-gallery {
-        grid-template-columns: 1fr;
-      }
-      .magazine-layout {
-        grid-template-areas:
-          "header"
-          "sidebar"
-          "main"
-          "footer";
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 <body>
 
@@ -128,41 +29,37 @@
     <p>Things I've built while learning web development.</p>
   </section>
 
-  <!-- PHOTO GALLERY (Task 4.2 Exercise 1) -->
-  <section class="gallery-section">
-    <div class="container">
-      <h2>Photo Gallery (3-Column Grid)</h2>
-      <div class="photo-gallery">
-        <img src="https://placehold.co/300x180?text=Image+1" alt="1" />
-        <img src="https://placehold.co/300x180?text=Image+2" alt="2" />
-        <img src="https://placehold.co/300x180?text=Image+3" alt="3" />
-        <img src="https://placehold.co/300x180?text=Image+4" alt="4" />
-        <img src="https://placehold.co/300x180?text=Image+5" alt="5" />
-        <img src="https://placehold.co/300x180?text=Image+6" alt="6" />
-      </div>
-    </div>
-  </section>
-
-  <!-- MAGAZINE LAYOUT (Task 4.2 Exercise 2) -->
-  <section class="magazine-section">
-    <div class="container">
-      <h2>Magazine Layout (CSS Grid)</h2>
-      <div class="magazine-layout">
-        <div class="mag-header">Header - Full Width</div>
-        <div class="mag-sidebar"><strong>Sidebar</strong><br><br>Navigation links<br>or side content here.</div>
-        <div class="mag-main"><strong>Main Content</strong><br><br>This is the main content area. It takes up the remaining space alongside the sidebar.</div>
-        <div class="mag-footer">Footer - Full Width &copy; 2026</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECT CARDS (Task 4.2 Exercise 3) -->
+  <!-- PROJECT CARDS (Flexbox Froggy + Grid Garden + Others) -->
   <section class="project-grid-section">
     <div class="container">
       <h2>Project Cards (Responsive Grid)</h2>
       <div class="project-grid">
+
+        <!-- Flexbox Froggy -->
         <div class="card">
-          <img src="https://placehold.co/400x200?text=Project+1" alt="Project 1" />
+          <img src="images/froggy.png" alt="Flexbox Froggy" />
+          <div class="card-body">
+            <span class="tag">Flexbox</span>
+            <h3>Flexbox Froggy</h3>
+            <p>Completed all levels of Flexbox Froggy. Screenshot shows proof.</p>
+            <a href="images/froggy.png" target="_blank" class="btn btn-primary">View Proof</a>
+          </div>
+        </div>
+
+        <!-- Grid Garden -->
+        <div class="card">
+          <img src="images/gridgarden.png" alt="Grid Garden" />
+          <div class="card-body">
+            <span class="tag">CSS Grid</span>
+            <h3>Grid Garden</h3>
+            <p>Completed all 28 levels of Grid Garden. Screenshot shows proof.</p>
+            <a href="images/gridgarden.png" target="_blank" class="btn btn-primary">View Proof</a>
+          </div>
+        </div>
+
+        <!-- Other Project Example -->
+        <div class="card">
+          <img src="https://placehold.co/400x200?text=Portfolio+Site" alt="Portfolio Site" />
           <div class="card-body">
             <span class="tag">HTML/CSS</span>
             <h3>Portfolio Site</h3>
@@ -170,51 +67,8 @@
             <a href="#" class="btn btn-primary">View Project</a>
           </div>
         </div>
-        <div class="card">
-          <img src="https://placehold.co/400x200?text=Project+2" alt="Project 2" />
-          <div class="card-body">
-            <span class="tag">JavaScript</span>
-            <h3>Quiz App</h3>
-            <p>An interactive quiz application with score tracking.</p>
-            <a href="#" class="btn btn-primary">View Project</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://placehold.co/400x200?text=Project+3" alt="Project 3" />
-          <div class="card-body">
-            <span class="tag">CSS Grid</span>
-            <h3>Landing Page</h3>
-            <p>A fully responsive landing page for a fictional product.</p>
-            <a href="#" class="btn btn-primary">View Project</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://placehold.co/400x200?text=Project+4" alt="Project 4" />
-          <div class="card-body">
-            <span class="tag">Flexbox</span>
-            <h3>Flex Dashboard</h3>
-            <p>A dashboard layout built entirely with Flexbox.</p>
-            <a href="#" class="btn btn-primary">View Project</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://placehold.co/400x200?text=Project+5" alt="Project 5" />
-          <div class="card-body">
-            <span class="tag">Responsive</span>
-            <h3>Mobile-First Blog</h3>
-            <p>A blog template designed mobile-first with media queries.</p>
-            <a href="#" class="btn btn-primary">View Project</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://placehold.co/400x200?text=Project+6" alt="Project 6" />
-          <div class="card-body">
-            <span class="tag">CSS Variables</span>
-            <h3>Theme Switcher</h3>
-            <p>Color theme demo using CSS custom properties.</p>
-            <a href="#" class="btn btn-primary">View Project</a>
-          </div>
-        </div>
+
+        <!-- Add more projects here as needed -->
       </div>
     </div>
   </section>
