@@ -1,0 +1,370 @@
+/* =============================================
+   STYLES.CSS - IYF Week 2: CSS Mastery
+   ============================================= */
+
+/* ----- CSS RESET (Task 3.1) ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ----- CSS CUSTOM PROPERTIES: Typography & Colors (Tasks 3.3 & 3.4) ----- */
+:root {
+  /* Font scale */
+  --font-xs:   0.75rem;   /* 12px */
+  --font-sm:   0.875rem;  /* 14px */
+  --font-base: 1rem;      /* 16px */
+  --font-lg:   1.125rem;  /* 18px */
+  --font-xl:   1.25rem;   /* 20px */
+  --font-2xl:  1.5rem;    /* 24px */
+  --font-3xl:  1.875rem;  /* 30px */
+  --font-4xl:  2.25rem;   /* 36px */
+
+  /* Color palette */
+  --color-primary:        #2563eb;
+  --color-primary-light:  #60a5fa;
+  --color-primary-dark:   #1e40af;
+  --color-secondary:      #10b981;
+  --color-background:     #f8fafc;
+  --color-text:           #1e293b;
+  --color-muted:          #94a3b8;
+  --color-danger:         #ef4444;
+  --color-white:          #ffffff;
+  --color-border:         #e2e8f0;
+
+  /* Spacing */
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  2rem;
+  --space-xl:  4rem;
+}
+
+/* ----- BASE TYPOGRAPHY (Task 3.1) ----- */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--font-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+h1 { font-family: 'Poppins', sans-serif; font-size: var(--font-4xl); font-weight: 700; margin-bottom: 1rem; }
+h2 { font-family: 'Poppins', sans-serif; font-size: var(--font-3xl); font-weight: 600; margin-bottom: 0.75rem; }
+h3 { font-family: 'Poppins', sans-serif; font-size: var(--font-2xl); font-weight: 600; margin-bottom: 0.5rem; }
+h4 { font-family: 'Poppins', sans-serif; font-size: var(--font-xl);  font-weight: 600; margin-bottom: 0.5rem; }
+h5 { font-family: 'Poppins', sans-serif; font-size: var(--font-lg);  font-weight: 500; }
+h6 { font-family: 'Poppins', sans-serif; font-size: var(--font-base); font-weight: 500; }
+
+p {
+  font-size: var(--font-base);
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+a:focus,
+button:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul { list-style: none; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* ----- BUTTONS (Day 1 Daily Challenge) ----- */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: var(--color-white);
+  border-color: var(--color-danger);
+}
+.btn-danger:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+.btn-disabled {
+  background-color: var(--color-muted);
+  color: var(--color-white);
+  border-color: var(--color-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ----- NAVBAR (Task 4.1 - Flexbox) ----- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem var(--space-lg);
+  background-color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: var(--font-base);
+  font-weight: 500;
+  color: var(--color-text);
+}
+.nav-links a:hover { color: var(--color-primary); }
+
+/* Hamburger - hidden on desktop */
+.nav-toggle { display: none; }
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+/* ----- HERO SECTION (Day 3) ----- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: var(--color-white);
+  max-width: 700px;
+}
+
+.hero-content h1 { color: var(--color-white); font-size: var(--font-4xl); }
+.hero-content p  { font-size: var(--font-lg); margin-bottom: var(--space-lg); opacity: 0.9; }
+.highlight { color: var(--color-primary-light); }
+
+/* ----- ABOUT SECTION ----- */
+.about-section {
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+  background: var(--color-white);
+}
+
+/* ----- CARDS SECTION (Task 4.1 - Flexbox card row, Day 2) ----- */
+.cards-section {
+  padding: var(--space-xl) var(--space-md);
+  background: var(--color-background);
+}
+
+.cards-section h2 {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.card-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  width: 300px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transform: translateY(-4px);
+}
+
+.card img {
+  width: 100%;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--color-primary);
+  background: #eff6ff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+}
+
+.card-body h3 { font-size: var(--font-xl); margin: 0.5rem 0 0.3rem; }
+.card-body p  { font-size: var(--font-sm); color: var(--color-muted); margin-bottom: 1rem; }
+
+/* ----- FOOTER (Task 4.1 ex3, Day 5) ----- */
+.footer {
+  background: var(--color-text);
+  color: #cbd5e1;
+  padding: var(--space-xl) var(--space-lg) var(--space-md);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.footer-col h4 { color: var(--color-white); margin-bottom: 0.75rem; }
+.footer-col p, .footer-col a { color: #94a3b8; font-size: var(--font-sm); }
+.footer-col ul li { margin-bottom: 0.4rem; }
+.footer-col a:hover { color: var(--color-primary-light); }
+
+.footer-copy {
+  text-align: center;
+  border-top: 1px solid #334155;
+  padding-top: var(--space-md);
+  font-size: var(--font-sm);
+  color: var(--color-muted);
+}
+
+/* =============================================
+   RESPONSIVE - MOBILE FIRST (Task 4.3)
+   ============================================= */
+
+/* Mobile base styles are above (single column default) */
+
+/* Tablet: 768px+ */
+@media (min-width: 768px) {
+  .card-row {
+    flex-wrap: nowrap;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Large Desktop: 1280px+ */
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 var(--space-lg);
+  }
+}
+
+/* Mobile nav (hamburger) */
+@media (max-width: 767px) {
+  .hamburger { display: block; }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    padding: 1rem var(--space-lg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    gap: 1rem;
+  }
+
+  .nav-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+
+  .hero-content h1 { font-size: var(--font-3xl); }
+
+  .card-row { flex-direction: column; align-items: center; }
+
+  .footer-grid { grid-template-columns: 1fr; }
+}
