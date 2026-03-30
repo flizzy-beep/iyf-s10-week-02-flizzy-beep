@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - My Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Task 4.2 - CSS Grid Gallery */
+    .projects-hero {
+      background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .projects-hero h1 { color: white; }
+
+    /* Exercise 1: Photo Gallery - 3 column grid */
+    .gallery-section {
+      padding: 4rem 2rem;
+      background: var(--color-background);
+    }
+    .gallery-section h2 { text-align: center; margin-bottom: 2rem; }
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .photo-gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* Exercise 2: Magazine Layout */
+    .magazine-section {
+      padding: 4rem 2rem;
+      background: var(--color-white);
+    }
+    .magazine-section h2 { text-align: center; margin-bottom: 2rem; }
+
+    .magazine-layout {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "sidebar main"
+        "footer footer";
+      grid-template-columns: 200px 1fr;
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .mag-header  { grid-area: header;  background: var(--color-primary);      color: white; padding: 1.5rem; border-radius: 8px; text-align: center; font-family: 'Poppins', sans-serif; font-weight: 600; }
+    .mag-sidebar { grid-area: sidebar; background: #eff6ff; padding: 1.5rem; border-radius: 8px; font-size: 0.875rem; }
+    .mag-main    { grid-area: main;    background: var(--color-background);    padding: 1.5rem; border-radius: 8px; font-size: 0.875rem; }
+    .mag-footer  { grid-area: footer;  background: var(--color-text);          color: white; padding: 1rem; border-radius: 8px; text-align: center; font-size: 0.875rem; }
+
+    /* Exercise 3: Project Cards Grid - responsive (Task 4.2 + 4.3) */
+    .project-grid-section {
+      padding: 4rem 2rem;
+      background: var(--color-background);
+    }
+    .project-grid-section h2 { text-align: center; margin-bottom: 2rem; }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr; /* mobile: 1 column */
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr); /* tablet: 2 columns */
+      }
+      .photo-gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .project-grid {
+        grid-template-columns: repeat(3, 1fr); /* desktop: 3 columns */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .photo-gallery {
+        grid-template-columns: 1fr;
+      }
+      .magazine-layout {
+        grid-template-areas:
+          "header"
+          "sidebar"
+          "main"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-logo">YourName</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="hamburger">&#9776;</label>
+  </nav>
+
+  <!-- HERO -->
+  <section class="projects-hero">
+    <h1>My Projects</h1>
+    <p>Things I've built while learning web development.</p>
+  </section>
+
+  <!-- PHOTO GALLERY (Task 4.2 Exercise 1) -->
+  <section class="gallery-section">
+    <div class="container">
+      <h2>Photo Gallery (3-Column Grid)</h2>
+      <div class="photo-gallery">
+        <img src="https://placehold.co/300x180?text=Image+1" alt="1" />
+        <img src="https://placehold.co/300x180?text=Image+2" alt="2" />
+        <img src="https://placehold.co/300x180?text=Image+3" alt="3" />
+        <img src="https://placehold.co/300x180?text=Image+4" alt="4" />
+        <img src="https://placehold.co/300x180?text=Image+5" alt="5" />
+        <img src="https://placehold.co/300x180?text=Image+6" alt="6" />
+      </div>
+    </div>
+  </section>
+
+  <!-- MAGAZINE LAYOUT (Task 4.2 Exercise 2) -->
+  <section class="magazine-section">
+    <div class="container">
+      <h2>Magazine Layout (CSS Grid)</h2>
+      <div class="magazine-layout">
+        <div class="mag-header">Header - Full Width</div>
+        <div class="mag-sidebar"><strong>Sidebar</strong><br><br>Navigation links<br>or side content here.</div>
+        <div class="mag-main"><strong>Main Content</strong><br><br>This is the main content area. It takes up the remaining space alongside the sidebar.</div>
+        <div class="mag-footer">Footer - Full Width &copy; 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT CARDS (Task 4.2 Exercise 3) -->
+  <section class="project-grid-section">
+    <div class="container">
+      <h2>Project Cards (Responsive Grid)</h2>
+      <div class="project-grid">
+        <div class="card">
+          <img src="https://placehold.co/400x200?text=Project+1" alt="Project 1" />
+          <div class="card-body">
+            <span class="tag">HTML/CSS</span>
+            <h3>Portfolio Site</h3>
+            <p>My personal responsive portfolio built with HTML and CSS.</p>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://placehold.co/400x200?text=Project+2" alt="Project 2" />
+          <div class="card-body">
+            <span class="tag">JavaScript</span>
+            <h3>Quiz App</h3>
+            <p>An interactive quiz application with score tracking.</p>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://placehold.co/400x200?text=Project+3" alt="Project 3" />
+          <div class="card-body">
+            <span class="tag">CSS Grid</span>
+            <h3>Landing Page</h3>
+            <p>A fully responsive landing page for a fictional product.</p>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://placehold.co/400x200?text=Project+4" alt="Project 4" />
+          <div class="card-body">
+            <span class="tag">Flexbox</span>
+            <h3>Flex Dashboard</h3>
+            <p>A dashboard layout built entirely with Flexbox.</p>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://placehold.co/400x200?text=Project+5" alt="Project 5" />
+          <div class="card-body">
+            <span class="tag">Responsive</span>
+            <h3>Mobile-First Blog</h3>
+            <p>A blog template designed mobile-first with media queries.</p>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://placehold.co/400x200?text=Project+6" alt="Project 6" />
+          <div class="card-body">
+            <span class="tag">CSS Variables</span>
+            <h3>Theme Switcher</h3>
+            <p>Color theme demo using CSS custom properties.</p>
+            <a href="#" class="btn btn-primary">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>About</h4><p>A passionate developer.</p></div>
+      <div class="footer-col"><h4>Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><p>email@example.com</p></div>
+      <div class="footer-col"><h4>Social</h4><p>🐙 GitHub &nbsp; 🐦 Twitter &nbsp; 💼 LinkedIn</p></div>
+    </div>
+    <div class="footer-copy"><p>&copy; 2026 YourName. All rights reserved.</p></div>
+  </footer>
+
+</body>
+</html>
